@@ -21,7 +21,7 @@ export const HeroSection = () => {
   return (
     <section id="Welcome" className="relative overflow-hidden py-24 min-h-screen flex items-center ">
       <svg className="absolute top-0 -left-32 w-[800px] h-[800px] opacity-20 dark:opacity-30 pointer-events-none" viewBox="0 0 200 200">
-        <path fill="var(--color-primary)" d="..." transform="translate(100 100)" />
+        <path fill="color-primary" d="..." transform="translate(100 100)" />
       </svg>
 
       <div className="relative z-10 flex flex-col md:flex-row items-center gap-10 max-w-6xl mx-auto px-6">

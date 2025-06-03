@@ -37,7 +37,7 @@ export const Navbar = () => {
 
   return (
     <>
-      <nav className="fixed top-0 left-0 w-full bg-primary shadow z-50">
+      <nav>
         <div className="max-w-screen-xl mx-auto px-4 py-3 flex items-center justify-between">
           <Logo />
           <DesktopNav activeSection={activeSection} sectionIds={sectionIds} />

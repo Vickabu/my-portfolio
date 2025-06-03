@@ -1,45 +1,20 @@
 import { Link } from 'react-router-dom';
 
-interface ProjectCardProps {
-  id: number;
+type Props = {
+  id: string,
   title: string;
   description: string;
-  homepage?: string;
-  repoUrl: string;
-}
+  image: string;
+};
 
-export const ProjectCard = ({ id, title, description, homepage, repoUrl }: ProjectCardProps) => (
-  <div className="p-6 rounded-xl bg-white dark:bg-gray-900 shadow hover:shadow-xl transition cursor-pointer group">
-    <Link to={`/project/${id}`}>
-      <h3 className="text-2xl font-semibold mb-2 text-primary dark:text-beige group-hover:underline">
-        {title}
-      </h3>
-      <p className="text-gray-700 dark:text-gray-300 mb-4">
-        {description || 'Ingen beskrivelse tilgjengelig.'}
-      </p>
-    </Link>
-
-    <div className="flex gap-4">
-      {homepage && (
-        <a
-          href={homepage}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="px-4 py-2 text-sm font-medium bg-primary text-white rounded hover:bg-opacity-90 transition"
-          onClick={e => e.stopPropagation()}
-        >
-          🔗 Live
-        </a>
-      )}
-      <a
-        href={repoUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="px-4 py-2 text-sm font-medium bg-gray-800 text-white rounded hover:bg-gray-700 transition"
-        onClick={e => e.stopPropagation()}
-      >
-        💻 GitHub
-      </a>
+export const ProjectCard = ({ id, title, description, image }: Props) => (
+  <Link to={`/projects/${id}`}
+    className="block rounded-md overflow-hidden bg-surface text-lightText hover:shadow-md shadow-surface hover:scale-[1.02] transition-transform duration-300 border border-darkText/10"
+  >
+    <img src={image} alt={title} className="w-full h-48 object-cover " />
+    <div className="p-4">
+      <h3 className="text-xl font-bold text-beige mb-2">{title}</h3>
+      <p className="text-sm text-darkText">{description}</p>
     </div>
-  </div>
+  </Link>
 );

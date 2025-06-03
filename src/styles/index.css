@@ -4,7 +4,7 @@
   --color-primary: #1A2D32;    
   --color-secondary: #cfbee4;  
   --color-background: #121417; 
-  --color-surface: #1F1F22; 
+  --color-surface: #1E2B2F; 
   --color-purple: #5B3E7F;   
   --color-beige: #F5F1E9;      
   --color-lightText: #EAEAEA;  
@@ -13,6 +13,7 @@
 /* 
 --color-primary: #82AABB;    */
 /* --color-secondary: #5B3E7F;   */
+/* --color-surface: #1F1F22;  */
 
 @keyframes slide-in {
   0% {
