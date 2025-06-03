@@ -1,0 +1,61 @@
+import { useCallback, useEffect, useRef, useState } from "react";
+import { RxHamburgerMenu } from "react-icons/rx";
+import { useActiveSection } from "../../hooks/useActiveSection";
+import { Logo } from "./Logo";
+import { DesktopNav } from "./DesktopNav";
+import { MobileMenu } from "./MobileMenu";
+
+const sectionIds = ["Welcome", "projects", "tech", "about", "contact"];
+
+export const Navbar = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [animateOut, setAnimateOut] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+  const activeSection = useActiveSection(sectionIds);
+
+  const toggleMenu = useCallback(() => {
+    if (menuOpen) {
+      setAnimateOut(true);
+      setTimeout(() => {
+        setMenuOpen(false);
+        setAnimateOut(false);
+      }, 400);
+    } else {
+      setMenuOpen(true);
+    }
+  }, [menuOpen]);
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
+        toggleMenu();
+      }
+    };
+    if (menuOpen) document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [menuOpen, toggleMenu]);
+
+  return (
+    <>
+      <nav className="fixed top-0 left-0 w-full bg-primary shadow z-50">
+        <div className="max-w-screen-xl mx-auto px-4 py-3 flex items-center justify-between">
+          <Logo />
+          <DesktopNav activeSection={activeSection} sectionIds={sectionIds} />
+          <button onClick={toggleMenu} className="md:hidden text-lightText">
+            <RxHamburgerMenu size={28} />
+          </button>
+        </div>
+      </nav>
+
+      {(menuOpen || animateOut) && (
+        <MobileMenu
+          activeSection={activeSection}
+          sectionIds={sectionIds}
+          closeMenu={toggleMenu}
+          animateOut={animateOut}
+          menuRef={menuRef}
+        />
+      )}
+    </>
+  );
+};
