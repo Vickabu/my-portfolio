@@ -1,6 +1,6 @@
-import lazySales from '../assets/projectimages/lazysales-logo.png';
-import stealthBid from '../assets/projectimages/DarkLogoBGF.png';
-import holidaze from '../assets/projectimages/Holidaze-logo.png';
+import lazySales from '../assets/projectimages/LazySales.jpg';
+import stealthBid from '../assets/projectimages/BrightLog.png';
+import holidaze from '../assets/projectimages/HOLI-DAZE.jpg';
 
 export const portfolioProjects = [
   {
