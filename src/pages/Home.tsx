@@ -10,15 +10,14 @@ export const Home = () => {
     const location = useLocation();
 
   useEffect(() => {
-    const scrollTo = location.state?.scrollTo;
-    if (scrollTo) {
-      const el = document.getElementById(scrollTo);
+    if (location.state?.scrollTo) {
+      const el = document.getElementById(location.state.scrollTo);
       if (el) {
         el.scrollIntoView({ behavior: "smooth" });
       }
-      window.history.replaceState({}, document.title);
     }
   }, [location]);
+
   return (
     <>
         <HeroSection />

@@ -5,7 +5,7 @@ import { Logo } from "./Logo";
 import { DesktopNav } from "./DesktopNav";
 import { MobileMenu } from "./MobileMenu";
 
-const sectionIds = ["Welcome", "projects", "tech", "about", "contact"];
+const sectionIds = ["Welcome", "projects", "about", "tech", "contact"];
 
 export const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -38,7 +38,7 @@ export const Navbar = () => {
   return (
     <>
       <nav>
-        <div className="max-w-screen-xl mx-auto px-4 py-3 flex items-center justify-between">
+        <div className="max-w-screen-xl mx-auto px-4 py-3 flex items-center justify-between backdrop-blur-3xl">
           <Logo />
           <DesktopNav activeSection={activeSection} sectionIds={sectionIds} />
           <button onClick={toggleMenu} className="md:hidden text-lightText">

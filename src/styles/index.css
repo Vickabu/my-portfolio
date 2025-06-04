@@ -43,6 +43,12 @@ html {
   height: auto;
 }
 
+/* section {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  scroll-margin-top: 60px; /* hvis du har sticky header */
+
+
 /* :root {
   --color-primary: #1F4B3E;
   --color-secondary: #5B3E7F;

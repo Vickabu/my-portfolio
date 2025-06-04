@@ -22,7 +22,7 @@ export const MobileMenu = ({
   return (
     <nav
       ref={menuRef}
-      className={`fixed top-0 right-0 h-full w-72 bg-primary/80 backdrop-blur-xl shadow-xl p-6 
+      className={`fixed top-0 right-0 h-full w-72 bg-background backdrop-blur shadow-xl p-6 
        flex flex-col items-end z-50
       ${animateOut ? "animate-slide-out-bounce" : "animate-slide-in"}`}
     >
