@@ -52,7 +52,7 @@ export const portfolioProjects: ProjectCardProps[] = [
 
     This project helped me deepen my understanding of React, state management, and creating interactive real-time features.
   `,
-  lastCommitText: 'No major improvements yet, but I plan to add more features soon.',
+  lastCommitText: 'Improved the bidding feature with input validation, user-friendly error handling, and a loading indicator for better UX. Removed developer logs for cleaner production code.',
   techUsed: ['React', 'TypeScript', 'Tailwind CSS', 'React Router'],
   liveUrl: 'https://stealth-bid.netlify.app/',
   repoUrl: 'https://github.com/Vickabu/StealthBid',
