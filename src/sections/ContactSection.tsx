@@ -18,7 +18,7 @@ export const ContactSection = () => {
 
         <div className="flex gap-6 justify-center">
           <a
-            href="www.linkedin.com/in/vicktoria-alexandra-bure-a98b1815a"
+            href="https://www.linkedin.com/in/vicktoria-alexandra-bure-a98b1815a/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-lightText hover:text-purple transition text-4xl"
