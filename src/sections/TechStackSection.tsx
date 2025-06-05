@@ -55,10 +55,10 @@ export const TechStackSection = () => {
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
       >
-        <h2 className="text-3xl md:text-5xl font-extrabold text-primary dark:text-beige">
+        <h2 className="text-3xl md:text-5xl font-extrabold text-beige">
           Tools & Skills
         </h2>
-        <p className="mt-4 text-gray-600 dark:text-gray-300 text-lg">
+        <p className="mt-4 text-gray-300 text-lg">
           Here are the technologies and tools I work with to design, build and deliver modern web experiences.
         </p>
       </motion.div>

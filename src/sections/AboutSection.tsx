@@ -19,7 +19,7 @@ export const AboutSection = () => {
         <h2 className="text-3xl md:text-5xl font-extrabold text-beige">
           So, who am I?
         </h2>
-        <p className="mt-4 text-gray-600 dark:text-gray-300 text-lg">
+        <p className="mt-4 text-gray-300 text-lg">
           A frontend developer with a creative core and passion for beautiful, usable web experiences.
         </p>
       </motion.div>
@@ -35,7 +35,6 @@ export const AboutSection = () => {
           <motion.div
             key={title}
             className="p-6 rounded-md shadow-lg hover:shadow-xl bg-primary/60 transition text-left"
-            whileHover={{ scale: 1.03 }}
           >
             <div className="flex mb-4 border-b pb-4">
               <Icon className="text-3xl text-secondary mr-4" />

@@ -3,12 +3,10 @@ import { portfolioProjects } from '../data/portfolioProjects';
 import { motion } from 'framer-motion';
 import { useGoToSection } from '../hooks/useGoToSection';
 
-
 export const ProjectDetails = () => {
   const { id } = useParams<{ id: string }>();
   const project = portfolioProjects.find(p => p.id === id);
   const goToSection = useGoToSection();
-
 
   if (!project) {
     return (
@@ -18,9 +16,7 @@ export const ProjectDetails = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <h2 className="text-3xl font-bold mb-6 text-primary">
-          Project not found
-        </h2>
+        <h2 className="text-3xl font-bold mb-6 text-primary">Project not found</h2>
         <Link
           to="/"
           className="text-blue-600 underline hover:text-blue-800 transition text-lg"
@@ -32,79 +28,77 @@ export const ProjectDetails = () => {
   }
 
   return (
-    <article className="min-h-screen pt-[80px] pb-24 px-6 sm:px-10 md:px-16 text-lightText">
+    <article className="min-h-screen pt-[96px] pb-24 px-6 sm:px-10 md:px-16 text-lightText">
       <motion.div
         className="max-w-3xl mx-auto"
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
-        <div className="mb-10">
-          <img
-            src={project.image}
-            alt={project.title}
-            className="rounded-xl shadow-lg w-full h-[320px] sm:h-[420px] md:h-[500px] object-cover"
-          />
-        </div>
 
-        <header className="mb-12">
-          <h1 className="text-4xl md:text-5xl font-extrabold text-beige mb-4 leading-tight">
+        {project.detailImage && (
+          <div className="mb-12">
+            <img
+              src={project.detailImage.src}
+              alt={project.detailImage.alt}
+              className="rounded-sm shadow-lg w-full h-[300px] sm:h-[420px] md:h-[450px] object-cover"
+            />
+          </div>
+        )}
+
+        <header className="mb-4">
+          <h1 className="text-4xl md:text-5xl font-extrabold text-beige mb-3 leading-tight">
             {project.title}
           </h1>
-          <p className="text-xl text-darkText/80 italic">
-            Focused on usability, simplicity and thoughtful design.
+          <p className="text-lg text-darkText/80 italic">
+            {project.teaserDescription || "A thoughtfully designed modern web app."}
           </p>
         </header>
 
-        <section className="prose prose-lg prose-invert max-w-none mb-16">
-          <p>{project.description}</p>
 
-          <p>
-            This project was designed to be intuitive and efficient, with a strong emphasis on visual hierarchy and accessibility.
-          </p>
-
-          <h2>Tech stack</h2>
-          <ul>
-            <li>React + TypeScript</li>
-            <li>TailwindCSS</li>
-            <li>Framer Motion</li>
-          </ul>
-
-          <h2>Reflection & learning</h2>
-          <p>
-            Throughout this project, I gained valuable experience with responsive layouts, design systems, and creating meaningful animations using Framer Motion.
-          </p>
+        <section className="prose prose-lg mb-12 whitespace-pre-line leading-relaxed">
+          <p>{project.mainDescription}</p>
         </section>
 
-        <div className="flex flex-col sm:flex-row sm:space-x-6 space-y-6 sm:space-y-0 mb-10">
-          <motion.a
-            href={project.liveUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block px-8 py-3 bg-primary text-beige rounded-lg font-semibold shadow hover:bg-purple transition text-center"
-            whileHover={{ scale: 1.05 }}
-            transition={{ type: 'spring', stiffness: 300 }}
-          >
-            View Live
-          </motion.a>
-          <motion.a
-            href={project.repoUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block px-8 py-3 bg-secondary text-background rounded-lg font-semibold shadow hover:bg-beige transition text-center"
-            whileHover={{ scale: 1.05 }}
-            transition={{ type: 'spring', stiffness: 300 }}
-          >
-            GitHub Repo
-          </motion.a>
+
+        {project.lastCommitText && (
+          <div className=" rounded-sm p-6 mb-12 text-lightText  shadow-md shadow-purple">
+            <h2 className="text-2xl font-semibold mb-2">Last Commit</h2>
+            <p className="whitespace-pre-line leading-relaxed">
+              {project.lastCommitText}
+            </p>
+          </div>
+        )}
+
+        <div className="flex flex-col sm:flex-row sm:space-x-6 space-y-6 sm:space-y-0 mb-16">
+          {project.liveUrl && (
+            <motion.a
+              href={project.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block w-full sm:w-auto text-center px-8 py-3 bg-primary text-lightText rounded-sm font-semibold shadow hover:bg-primary/70 transition"
+            >
+              View Live
+            </motion.a>
+          )}
+          {project.repoUrl && (
+            <motion.a
+              href={project.repoUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block w-full sm:w-auto text-center px-8 py-3 bg-purple text-lightText rounded-sm font-semibold shadow hover:bg-purple/70 transition"
+            >
+              GitHub Repo
+            </motion.a>
+          )}
         </div>
 
-          <button
-            onClick={() => goToSection("projects")}
-            className="underline hover:text-darkText transition"
-          >
-            ← Back to Projects
-          </button>
+        <button
+          onClick={() => goToSection('projects')}
+          className="text-md text-lightText underline hover:text-secondary transition"
+        >
+          ← Back to Projects
+        </button>
       </motion.div>
     </article>
   );

@@ -19,14 +19,25 @@ export type MobileMenuProps = {
   menuRef: React.RefObject<HTMLDivElement | null>;
 };
 
+// project images
+export type ProjectImage = {
+  src: string;
+  alt: string;
+};
+
 // Project card
 export type ProjectCardProps = {
   id: string;
   title: string;
-  description: string;
-  image: string;
-  liveUrl: string;
-  repoUrl: string;
+  teaserDescription?: string;
+  mainImage: ProjectImage;
+  detailImage?: ProjectImage;
+  groupImages?: ProjectImage[];
+  mainDescription?: string;
+  lastCommitText?: string;
+  techUsed?: string[];
+  liveUrl?: string;
+  repoUrl?: string;
 };
 
 // About card
