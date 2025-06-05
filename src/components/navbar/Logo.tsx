@@ -10,7 +10,7 @@ export const Logo = () => {
 
   return (
     <div onClick={handleClick} className="cursor-pointer flex items-center gap-2">
-      <img src={logo} alt="logo-dark" className="h-16" />
+      <img src={logo} alt="logo-dark" className="h-16 w-full" />
     </div>
   );
 };

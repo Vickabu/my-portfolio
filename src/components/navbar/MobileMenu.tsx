@@ -1,14 +1,8 @@
 import { BsX } from "react-icons/bs";
 import { NavLink } from "./NavLink";
 import { useGoToSection } from "../../hooks/useGoToSection";
+import type { MobileMenuProps } from "../../types";
 
-type Props = {
-  activeSection: string;
-  sectionIds: string[];
-  closeMenu: () => void;
-  animateOut: boolean;
-  menuRef: React.RefObject<HTMLDivElement | null>;
-};
 
 export const MobileMenu = ({
   activeSection,
@@ -16,7 +10,7 @@ export const MobileMenu = ({
   closeMenu,
   animateOut,
   menuRef,
-}: Props) => {
+}: MobileMenuProps) => {
   const goToSection = useGoToSection();
 
   return (

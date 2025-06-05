@@ -1,12 +1,14 @@
 import { portfolioProjects } from '../data/portfolioProjects';
 import { ProjectCard } from '../components/project/ProjectCard';
+import type { ProjectCardProps } from "../types";
 import { motion } from 'framer-motion';
+
 
 export const ProjectsSection = () => {
   return (
     <section
       id="projects"
-      className="snap-start min-h-screen pt-32 px-4 sm:px-8 flex flex-col items-center bg-background"
+      className="snap-start min-h-screen justify-center px-4 sm:px-8 flex flex-col items-center py-10 md:py-0"
     >
       <motion.div
         className="text-center mb-14 max-w-2xl"
@@ -15,10 +17,10 @@ export const ProjectsSection = () => {
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
       >
-        <h2 className="text-3xl md:text-5xl font-extrabold text-primary dark:text-beige">
+        <h2 className="text-3xl md:text-5xl font-extrabold text-beige">
           Projects
         </h2>
-        <p className="mt-4 text-gray-600 dark:text-gray-300 text-lg">
+        <p className="mt-4 text-gray-300 text-lg">
           Three selected projects with a focus on usability and reflection.
         </p>
       </motion.div>
@@ -30,14 +32,9 @@ export const ProjectsSection = () => {
           transition={{ delay: 0.3, duration: 0.7 }}
           viewport={{ once: true }}
         >
-        {portfolioProjects.map((project) => (
+        {portfolioProjects.map((project: ProjectCardProps) => (
           <div key={project.id} className="flex justify-center">
-            <ProjectCard
-              id={project.id}
-              title={project.title}
-              description={project.description}
-              image={project.image}
-            />
+            <ProjectCard {...project} />
           </div>
         ))}
       </motion.div>

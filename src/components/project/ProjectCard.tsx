@@ -1,19 +1,18 @@
 import { Link } from 'react-router-dom';
+import type { ProjectCardProps } from "../../types";
 
-type Props = {
-  id: string;
-  title: string;
-  description: string;
-  image: string;
-};
-
-export const ProjectCard = ({ id, title, description, image }: Props) => (
-    <Link
+export const ProjectCard = ({
+  id,
+  title,
+  description,
+  image,
+}: ProjectCardProps) => (
+  <Link
     to={`/projects/${id}`}
     className=" group block rounded overflow-hidden shadow-surface text-lightText border border-darkText/10 shadow-md  hover:shadow-purple transition-shadow duration-300 transform hover:-translate-y-2 mx-auto"
-    style={{ height: '24rem' }} 
+    style={{ height: '24rem' }}
   >
-    <div className="relative overflow-hidden" style={{ height: '14rem' }}> 
+    <div className="relative overflow-hidden" style={{ height: '14rem' }}>
       <img
         src={image}
         alt={title}
@@ -21,7 +20,7 @@ export const ProjectCard = ({ id, title, description, image }: Props) => (
       />
       <div className="absolute inset-0 "></div>
     </div>
-    <div className="p-5" style={{ height: '10rem' }}> 
+    <div className="p-5" style={{ height: '10rem' }}>
       <h3 className="text-xl font-semibold text-beige mb-2">{title}</h3>
       <p className="text-sm text-darkText leading-relaxed overflow-hidden ">
         {description}

@@ -1,11 +1,5 @@
 import { useLocation } from "react-router-dom";
-
-type NavLinkProps = {
-  id: string;
-  active: string;
-  onClick: (id: string) => void;
-  className?: string;
-};
+import type { NavLinkProps } from "../../types";
 
 export const NavLink = ({ id, active, onClick, className = "" }: NavLinkProps) => {
   const location = useLocation();

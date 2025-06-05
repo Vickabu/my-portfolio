@@ -4,8 +4,8 @@ import { useActiveSection } from "../../hooks/useActiveSection";
 import { Logo } from "./Logo";
 import { DesktopNav } from "./DesktopNav";
 import { MobileMenu } from "./MobileMenu";
+import { sectionIds } from "../../types";
 
-const sectionIds = ["Welcome", "projects", "about", "tech", "contact"];
 
 export const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);

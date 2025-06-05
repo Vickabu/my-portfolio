@@ -1,8 +1,9 @@
 import lazySales from '../assets/projectimages/LazySales.jpg';
 import stealthBid from '../assets/projectimages/BrightLog.png';
 import holidaze from '../assets/projectimages/HOLI-DAZE.jpg';
+import type { ProjectCardProps } from "../types";
 
-export const portfolioProjects = [
+export const portfolioProjects: ProjectCardProps[] = [
   {
     id: 'js-frameworks',
     title: 'Lazy Sales',

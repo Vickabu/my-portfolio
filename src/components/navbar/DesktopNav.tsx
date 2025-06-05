@@ -1,12 +1,10 @@
 import { NavLink } from "./NavLink";
 import { useGoToSection } from "../../hooks/useGoToSection";
+import type { DesktopNavProps } from "../../types";
 
-type Props = {
-  activeSection: string;
-  sectionIds: string[];
-};
 
-export const DesktopNav = ({ activeSection, sectionIds }: Props) => {
+
+export const DesktopNav = ({ activeSection, sectionIds }: DesktopNavProps) => {
   const goToSection = useGoToSection();
 
   return (

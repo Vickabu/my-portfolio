@@ -1,34 +1,32 @@
 import { motion } from 'framer-motion';
 import { useEffect, useState, useRef } from 'react';
 import profileImg from "../assets/images/profileimg.png";
-import { useIsMobile } from "../hooks/useIsMobile";
-
+import { ScrollToNext } from "../components/common/ScrollToNext";
+import { sectionIds } from "../types";
 
 export const HeroSection = () => {
   const [typed, setTyped] = useState('');
-  const isMobile = useIsMobile();
   const heroRef = useRef<HTMLElement | null>(null);
   const fullText = 'Frontend developer focused on detail, functionality and clean design.';
 
-useEffect(() => {
-  let i = 0;
-  const interval = setInterval(() => {
-    if (i < fullText.length) {
-      setTyped((prev) => prev + (fullText[i] ?? ''));
-      i++;
-    } else {
-      clearInterval(interval);
-    }
-  }, 40);
-  return () => clearInterval(interval);
-}, []);
-
+  useEffect(() => {
+    let i = 0;
+    const interval = setInterval(() => {
+      if (i < fullText.length) {
+        setTyped((prev) => prev + (fullText[i] ?? ''));
+        i++;
+      } else {
+        clearInterval(interval);
+      }
+    }, 40);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <section
       ref={heroRef}
-      id="Welcome"
-      className="relative snap-start min-h-screen flex flex-col items-center justify-center px-6 bg-background text-lightText"
+      id="welcome"
+      className="relative snap-start min-h-screen flex flex-col items-center justify-center px-4 sm:px-8 text-lightText"
     >
       <div className="relative z-10 flex flex-col md:flex-row items-center gap-10 max-w-6xl w-full">
         <motion.div
@@ -56,16 +54,13 @@ useEffect(() => {
           <p className="text-lg md:text-xl text-lightText/80 min-h-[2.5rem] mb-6">
             {typed}
           </p>
-
-       
         </motion.div>
       </div>
 
-      {!isMobile && (
-        <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 hidden md:block">
-          <div className="animate-bounce text-darkText text-4xl">↓</div>
-        </div>
-      )}
+      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 md:block">
+        <ScrollToNext sectionIds={sectionIds} />
+      </div>
     </section>
+    
   );
 };

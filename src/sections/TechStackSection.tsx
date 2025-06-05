@@ -1,15 +1,25 @@
+import type { TechIconKey } from "../types";
 import { techStack } from '../data/techStack';
 import { motion } from 'framer-motion';
 import type { IconType } from 'react-icons';
 import {
   SiReact, SiTypescript, SiJavascript, SiTailwindcss, SiBootstrap,
   SiCss3, SiVite, SiGit, SiGithub,
-  SiFigma, SiMysql
+  SiFigma, SiMysql, SiJira, 
+  SiTrello, 
+  SiEslint, 
+  SiPrettier, 
+  SiJest, 
+  SiCypress, 
+  SiCanva, 
 } from 'react-icons/si';
 import { FaRobot } from 'react-icons/fa';
 import { BiLogoVisualStudio } from 'react-icons/bi';
 
-const iconMap: Record<string, IconType> = {
+
+
+
+const iconMap: Record<TechIconKey, IconType> = {
   react: SiReact,
   typescript: SiTypescript,
   javascript: SiJavascript,
@@ -21,16 +31,22 @@ const iconMap: Record<string, IconType> = {
   github: SiGithub,
   vscode: BiLogoVisualStudio,
   figma: SiFigma,
-  sql: SiMysql,
   database: SiMysql,
   robot: FaRobot,
+  jira: SiJira,
+  trello: SiTrello,
+  eslint: SiEslint,
+  prettier: SiPrettier,
+  jest: SiJest,
+  cypress: SiCypress,
+  canva: SiCanva,
 };
 
 export const TechStackSection = () => {
   return (
     <section
-      id="tech"
-      className="snap-start min-h-screen pt-32 px-4 sm:px-8 flex flex-col items-center text-lightText"
+      id="skills"
+      className="snap-start min-h-screen py-10 md:py-0 px-4 sm:px-8 flex flex-col items-center text-lightText justify-center"
     >
       <motion.div
         className="text-center mb-14 max-w-2xl"
@@ -56,13 +72,15 @@ export const TechStackSection = () => {
       >
         {techStack.map(({ name, icon, url }) => {
           const Icon = iconMap[icon];
+          if (!Icon) return null; 
+
           return (
             <a
-              key={name}
+              key={`${name}-${icon}`}
               href={url}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex flex-col items-center gap-2 p-4 rounded-lg bg-white/10 hover:bg-white/20 transition"
+              className="flex flex-col items-center gap-2 p-4 rounded-md shadow-surface border border-darkText/10 shadow-md  hover:shadow-purple transition-shadow duration-300 transform hover:-translate-y-2"
             >
               <Icon className="text-3xl md:text-4xl text-purple" />
               <span className="text-sm text-lightText">{name}</span>

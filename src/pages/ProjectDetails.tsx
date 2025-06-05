@@ -32,14 +32,13 @@ export const ProjectDetails = () => {
   }
 
   return (
-    <article className="min-h-screen pt-32 pb-24 px-6 sm:px-10 md:px-16 bg-background text-lightText">
+    <article className="min-h-screen pt-[80px] pb-24 px-6 sm:px-10 md:px-16 text-lightText">
       <motion.div
         className="max-w-3xl mx-auto"
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
-        {/* Hero image */}
         <div className="mb-10">
           <img
             src={project.image}
@@ -48,7 +47,6 @@ export const ProjectDetails = () => {
           />
         </div>
 
-        {/* Tittel og intro */}
         <header className="mb-12">
           <h1 className="text-4xl md:text-5xl font-extrabold text-beige mb-4 leading-tight">
             {project.title}
@@ -58,7 +56,6 @@ export const ProjectDetails = () => {
           </p>
         </header>
 
-        {/* Innhold */}
         <section className="prose prose-lg prose-invert max-w-none mb-16">
           <p>{project.description}</p>
 
@@ -79,7 +76,6 @@ export const ProjectDetails = () => {
           </p>
         </section>
 
-        {/* Knapper */}
         <div className="flex flex-col sm:flex-row sm:space-x-6 space-y-6 sm:space-y-0 mb-10">
           <motion.a
             href={project.liveUrl}

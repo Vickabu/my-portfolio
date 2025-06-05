@@ -1,4 +1,6 @@
-export const techStack = [
+import type { TechItem } from "../types";
+
+export const techStack: TechItem[] = [
   {
     name: "React",
     icon: "react",
@@ -25,9 +27,9 @@ export const techStack = [
     url: "https://getbootstrap.com/",
   },
   {
-    name: "CSS3",
-    icon: "css",
-    url: "https://developer.mozilla.org/en-US/docs/Web/CSS",
+  name: "CSS",
+  icon: "css",
+  url: "https://developer.mozilla.org/en-US/docs/Web/CSS",
   },
   {
     name: "Vite",
@@ -64,4 +66,40 @@ export const techStack = [
     icon: "robot", 
     url: "https://boost.ai/",
   },
+  {
+    name: "Jira",
+    icon: "jira",
+    url: "https://www.atlassian.com/software/jira",
+  },
+  {
+    name: "Trello",
+    icon: "trello",
+    url: "https://trello.com/",
+  },
+  {
+    name: "ESLint",
+    icon: "eslint",
+    url: "https://eslint.org/",
+  },
+  {
+    name: "Prettier",
+    icon: "prettier",
+    url: "https://prettier.io/",
+  },
+  {
+    name: "Jest",
+    icon: "jest",
+    url: "https://jestjs.io/",
+  },
+  {
+    name: "Cypress",
+    icon: "cypress",
+    url: "https://www.cypress.io/",
+  },
+  {
+    name: "Canva",
+    icon: "canva",
+    url: "https://www.canva.com/",
+  },
+
 ];
