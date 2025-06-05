@@ -1,6 +1,6 @@
-import lazySales from '../assets/projectimages/LazySales.jpg';
+import lazySales from '../assets/projectimages/LazySales.JPG';
 import stealthBid from '../assets/projectimages/BrightLog.png';
-import holidaze from '../assets/projectimages/HOLI-DAZE.jpg';
+import holidaze from '../assets/projectimages/HOLI-DAZE.JPG';
 import type { ProjectCardProps } from "../types";
 
 export const portfolioProjects: ProjectCardProps[] = [

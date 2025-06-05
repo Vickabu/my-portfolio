@@ -67,6 +67,8 @@ export type TechItem = {
   url: string;
 };
 
+
+// section id
 export const sectionIds = [
   "welcome",
   "about",
