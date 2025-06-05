@@ -1,44 +1,43 @@
-import { useEffect, useState } from 'react';
+import { portfolioProjects } from '../data/portfolioProjects';
 import { ProjectCard } from '../components/project/ProjectCard';
+import type { ProjectCardProps } from "../types";
 import { motion } from 'framer-motion';
 
+
 export const ProjectsSection = () => {
-  const [projects, setProjects] = useState<any[]>([]);
-
-  useEffect(() => {
-    fetch('https://api.github.com/users/Vickabu/repos')
-      .then(res => res.json())
-      .then(data => {
-        const filtered = data.filter((repo: any) => repo.homepage);
-        setProjects(filtered);
-      });
-  }, []);
-
   return (
-    <motion.section
-      className="py-16 px-6 bg-background min-h-screen items-center"
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-      viewport={{ once: true }}
+    <section
       id="projects"
+      className="snap-start min-h-screen justify-center px-4 sm:px-8 flex flex-col items-center py-10 md:py-0"
     >
-      <div className="max-w-5xl mx-auto text-center mb-12 items-center">
-        <h2 className="text-4xl font-bold text-primary dark:text-beige">Prosjekter</h2>
-        <p className="text-gray-600 dark:text-gray-300 mt-2">Noen av tingene jeg har laget</p>
-      </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {projects.map(project => (
-          <ProjectCard
-          key={project.id}
-          id={project.id}
-          title={project.name}
-          description={project.description}
-          homepage={project.homepage}
-          repoUrl={project.html_url}
-        />
+      <motion.div
+        className="text-center mb-14 max-w-2xl"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+      >
+        <h2 className="text-3xl md:text-5xl font-extrabold text-beige">
+          Projects
+        </h2>
+        <p className="mt-4 text-gray-300 text-lg">
+          Three selected projects with a focus on usability and reflection.
+        </p>
+      </motion.div>
+
+      <motion.div
+          className="w-full max-w-5xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: 0.3, duration: 0.7 }}
+          viewport={{ once: true }}
+        >
+        {portfolioProjects.map((project: ProjectCardProps) => (
+          <div key={project.id} className="flex justify-center">
+            <ProjectCard {...project} />
+          </div>
         ))}
-      </div>
-    </motion.section>
+      </motion.div>
+    </section>
   );
 };

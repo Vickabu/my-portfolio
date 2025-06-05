@@ -1,14 +1,8 @@
 import { BsX } from "react-icons/bs";
 import { NavLink } from "./NavLink";
 import { useGoToSection } from "../../hooks/useGoToSection";
+import type { MobileMenuProps } from "../../types";
 
-type Props = {
-  activeSection: string;
-  sectionIds: string[];
-  closeMenu: () => void;
-  animateOut: boolean;
-  menuRef: React.RefObject<HTMLDivElement | null>;
-};
 
 export const MobileMenu = ({
   activeSection,
@@ -16,13 +10,13 @@ export const MobileMenu = ({
   closeMenu,
   animateOut,
   menuRef,
-}: Props) => {
+}: MobileMenuProps) => {
   const goToSection = useGoToSection();
 
   return (
     <nav
       ref={menuRef}
-      className={`fixed top-0 right-0 h-full w-72 bg-primary/80 backdrop-blur-xl shadow-xl p-6 
+      className={`fixed top-0 right-0 h-full w-72 bg-background backdrop-blur shadow-xl p-6 
        flex flex-col items-end z-50
       ${animateOut ? "animate-slide-out-bounce" : "animate-slide-in"}`}
     >

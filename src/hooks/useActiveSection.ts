@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
+import type { SectionId } from "../types";
 
-export const useActiveSection = (ids: string[]) => {
+
+export const useActiveSection = (ids: readonly SectionId[]) => {
   const [active, setActive] = useState(ids[0]);
 
   useEffect(() => {

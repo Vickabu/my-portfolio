@@ -1,45 +1,30 @@
 import { Link } from 'react-router-dom';
+import type { ProjectCardProps } from "../../types";
 
-interface ProjectCardProps {
-  id: number;
-  title: string;
-  description: string;
-  homepage?: string;
-  repoUrl: string;
-}
-
-export const ProjectCard = ({ id, title, description, homepage, repoUrl }: ProjectCardProps) => (
-  <div className="p-6 rounded-xl bg-white dark:bg-gray-900 shadow hover:shadow-xl transition cursor-pointer group">
-    <Link to={`/project/${id}`}>
-      <h3 className="text-2xl font-semibold mb-2 text-primary dark:text-beige group-hover:underline">
-        {title}
-      </h3>
-      <p className="text-gray-700 dark:text-gray-300 mb-4">
-        {description || 'Ingen beskrivelse tilgjengelig.'}
-      </p>
-    </Link>
-
-    <div className="flex gap-4">
-      {homepage && (
-        <a
-          href={homepage}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="px-4 py-2 text-sm font-medium bg-primary text-white rounded hover:bg-opacity-90 transition"
-          onClick={e => e.stopPropagation()}
-        >
-          🔗 Live
-        </a>
-      )}
-      <a
-        href={repoUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="px-4 py-2 text-sm font-medium bg-gray-800 text-white rounded hover:bg-gray-700 transition"
-        onClick={e => e.stopPropagation()}
-      >
-        💻 GitHub
-      </a>
+export const ProjectCard = ({
+  id,
+  title,
+  description,
+  image,
+}: ProjectCardProps) => (
+  <Link
+    to={`/projects/${id}`}
+    className=" group block rounded overflow-hidden shadow-surface text-lightText border border-darkText/10 shadow-md  hover:shadow-purple transition-shadow duration-300 transform hover:-translate-y-2 mx-auto"
+    style={{ height: '24rem' }}
+  >
+    <div className="relative overflow-hidden" style={{ height: '14rem' }}>
+      <img
+        src={image}
+        alt={title}
+        className="w-full h-full object-cover"
+      />
+      <div className="absolute inset-0 "></div>
     </div>
-  </div>
+    <div className="p-5" style={{ height: '10rem' }}>
+      <h3 className="text-xl font-semibold text-beige mb-2">{title}</h3>
+      <p className="text-sm text-darkText leading-relaxed overflow-hidden ">
+        {description}
+      </p>
+    </div>
+  </Link>
 );
