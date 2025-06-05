@@ -30,10 +30,7 @@ export const portfolioProjects: ProjectCardProps[] = [
 
     This project gave us valuable experience collaborating as a team, working with React, and handling live data.
   `,
-  lastCommitText: `
-    Latest update: Added a constants file and implemented doFetch and useFetch hooks for easier and reusable API handling.
-    This setup improves flexibility for future enhancements like authentication and custom headers.
-  `,
+  lastCommitText: `Refactored the project to use a centralized API constants file and custom useFetch hook, improving maintainability and aligning with feedback on best practices for environment flexibility and cleaner code.`,
   liveUrl: 'https://lazysales.netlify.app/',
   repoUrl: 'https://github.com/Vickabu/ca-js-frameworks',
   },
