@@ -2,9 +2,9 @@ import { HeroSection } from '../sections/HeroSection';
 import { ProjectsSection } from '../sections/ProjectsSection';
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
-// import { TechStackSection } from '../components/TechStackSection';
-// import { AboutSection } from '../components/AboutSection';
-// import { ContactSection } from '../components/ContactSection';
+import { TechStackSection } from '../sections/TechStackSection';
+// import { AboutSection } from '../sections/AboutSection';
+// import { ContactSection } from '../sections/ContactSection';
 
 export const Home = () => {
     const location = useLocation();
@@ -22,10 +22,10 @@ export const Home = () => {
     <>
         <HeroSection />
         <ProjectsSection />
-      {/* <section id="tech">
+      <section id="tech">
         <TechStackSection />
       </section>
-      <section id="about">
+      {/* <section id="about">
         <AboutSection />
       </section>
       <section id="contact">
