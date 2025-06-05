@@ -37,8 +37,8 @@ export const Navbar = () => {
 
   return (
     <>
-      <nav>
-        <div className="max-w-screen-xl mx-auto px-4 py-3 flex items-center justify-between backdrop-blur-3xl">
+      <nav className="w-full backdrop-blur-3xl">
+        <div className="max-w-screen-xl mx-auto px-4 py-3 flex items-center justify-between">
           <Logo />
           <DesktopNav activeSection={activeSection} sectionIds={sectionIds} />
           <button onClick={toggleMenu} className="md:hidden text-lightText">
