@@ -39,13 +39,13 @@ export const portfolioProjects: ProjectCardProps[] = [
   mainImage: { src: stealthBidLogo, alt: 'StealthBid Logo' },
   detailImage: { src: stealthBidDisplay, alt: 'Screenshot of StealthBid auction page' },
   mainDescription: `
-    StealthBid is a semester project where I developed an auction marketplace built with modern React techniques.
-    It offers users a dynamic and mobile-responsive platform to browse, search, sort, and bid on unique auction items.
-    
-    Key features include live auction listings with product details, keyword search, sorting options by time, price, or alphabet, and pagination for easy navigation.
-    The platform is optimized for seamless use across devices, ensuring a smooth bidding experience anywhere.
+    StealthBid is a semester project where I built a responsive and interactive auction platform using modern JavaScript, Vite, and Tailwind CSS.
+    The application allows users to browse, search, sort, and place bids on unique auction items in real time.
 
-    This project helped me deepen my understanding of React, state management, and creating interactive real-time features.
+    Key features include live auction listings with detailed item descriptions, keyword-based search, sorting options by time, price, or name, and pagination for smooth navigation.
+    The interface is fully responsive and optimized for both mobile and desktop devices.
+
+    This project gave me valuable hands-on experience with vanilla JavaScript, DOM manipulation, real-time interactivity, and modern frontend workflows—entirely without relying on frontend frameworks like React.
   `,
   lastCommitText: 'Improved the bidding feature with input validation, user-friendly error handling, and a loading indicator for better UX. Removed developer logs for cleaner production code.',
   techUsed: ['React', 'TypeScript', 'Tailwind CSS', 'React Router'],
