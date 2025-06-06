@@ -2,6 +2,9 @@ import { useParams, Link } from 'react-router-dom';
 import { portfolioProjects } from '../data/portfolioProjects';
 import { motion } from 'framer-motion';
 import { useGoToSection } from '../hooks/useGoToSection';
+import { ProjectHeader } from '../components/project/ProjectHeader';
+import { ProjectDescription } from '../components/project/ProjectDescription';
+import { ProjectLinks } from '../components/project/ProjectLinks';
 
 export const ProjectDetails = () => {
   const { id } = useParams<{ id: string }>();
@@ -35,7 +38,6 @@ export const ProjectDetails = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
-
         {project.detailImage && (
           <div className="mb-12">
             <img
@@ -46,53 +48,12 @@ export const ProjectDetails = () => {
           </div>
         )}
 
-        <header className="mb-4">
-          <h1 className="text-4xl md:text-5xl font-extrabold text-beige mb-3 leading-tight">
-            {project.title}
-          </h1>
-          <p className="text-lg text-darkText/80 italic">
-            {project.teaserDescription || "A thoughtfully designed modern web app."}
-          </p>
-        </header>
-
-
-        <section className="prose prose-lg mb-12 whitespace-pre-line leading-relaxed">
-          <p>{project.mainDescription}</p>
-        </section>
-
-
-        {project.lastCommitText && (
-          <div className=" rounded-sm p-6 mb-12 text-lightText  shadow-md shadow-purple">
-            <h2 className="text-2xl font-semibold mb-2">Last Commit</h2>
-            <p className="whitespace-pre-line leading-relaxed">
-              {project.lastCommitText}
-            </p>
-          </div>
-        )}
-
-        <div className="flex flex-col sm:flex-row sm:space-x-6 space-y-6 sm:space-y-0 mb-16">
-          {project.liveUrl && (
-            <motion.a
-              href={project.liveUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block w-full sm:w-auto text-center px-8 py-3 bg-primary text-lightText rounded-sm font-semibold shadow hover:bg-primary/70 transition"
-            >
-              View Live
-            </motion.a>
-          )}
-          {project.repoUrl && (
-            <motion.a
-              href={project.repoUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block w-full sm:w-auto text-center px-8 py-3 bg-purple text-lightText rounded-sm font-semibold shadow hover:bg-purple/70 transition"
-            >
-              GitHub Repo
-            </motion.a>
-          )}
-        </div>
-
+        <ProjectHeader title={project.title} teaser={project.teaserDescription || ''} />
+        <ProjectDescription
+          main={project.mainDescription}
+          commit={project.lastCommitText}
+        />
+        <ProjectLinks liveUrl={project.liveUrl} repoUrl={project.repoUrl} />
         <button
           onClick={() => goToSection('projects')}
           className="text-md text-lightText underline hover:text-secondary transition"

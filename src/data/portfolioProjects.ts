@@ -4,8 +4,6 @@ import stealthBidLogo from '../assets/projectimages/BrightLog.png';
 import stealthBidDisplay from '../assets/projectimages/StealthBid-screen.JPG';
 import holidazeLogo from '../assets/projectimages/HOLI-DAZE.JPG';
 import holidazeDisplay from '../assets/projectimages/Holidaze.JPG';
-
-
 import type { ProjectCardProps } from "../types";
 
 export const portfolioProjects: ProjectCardProps[] = [
